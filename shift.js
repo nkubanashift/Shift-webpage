@@ -1,12 +1,21 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const menuIcon = document.getElementById("menu-icon");
-    const mobileMenu = document.getElementById("mobile-menu");
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        var inptSearch = document.getElementById('inpt_search');
 
-    menuIcon.addEventListener("click", function () {
-        if (mobileMenu.style.display === "block") {
-            mobileMenu.style.display = "none";
-        } else {
-            mobileMenu.style.display = "block";
-        }
+        inptSearch.addEventListener('focus', function() {
+            var label = this.parentElement.querySelector('label');
+            if (label) {
+                label.style.color = 'red';
+            }
+        });
+
+        inptSearch.addEventListener('blur', function() {
+            if (this.value.length === 0) {
+                var label = this.parentElement.querySelector('label');
+                if (label) {
+                    label.style.color = ''; // Restore the default color
+                }
+            }
+        });
     });
-});
+})();
