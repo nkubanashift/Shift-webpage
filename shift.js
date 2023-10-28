@@ -1,21 +1,17 @@
-(function() {
-    document.addEventListener('DOMContentLoaded', function() {
-        var inptSearch = document.getElementById('inpt_search');
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const container = document.querySelector('.container');
+    const sideMenu = document.querySelector('.side-menu');
+    const backLink = sideMenu.querySelector('a[href="#"]'); // Change the href value to match the actual URL of the home page
 
-        inptSearch.addEventListener('focus', function() {
-            var label = this.parentElement.querySelector('label');
-            if (label) {
-                label.style.color = 'red';
-            }
-        });
-
-        inptSearch.addEventListener('blur', function() {
-            if (this.value.length === 0) {
-                var label = this.parentElement.querySelector('label');
-                if (label) {
-                    label.style.color = ''; // Restore the default color
-                }
-            }
-        });
+    hamburgerIcon.addEventListener('click', function() {
+        container.classList.toggle('active');
     });
-})();
+
+    // Add an event listener to the back icon in the side menu
+    backLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior (e.g., navigating to "#")
+        container.classList.remove('active'); // Close the side menu
+        // You can add additional logic here to navigate to the actual home page if needed
+    });
+});

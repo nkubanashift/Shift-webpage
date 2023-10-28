@@ -1,139 +1,172 @@
-/* Non-responsive styles for screens of all sizes */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
     background: transparent;
 }
 
-.header-container {
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    position: relative;
+}
+
+header {
+    background: transparent;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    padding: 0 20px;
+    height: 150px;
 }
 
 .logo {
-    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
-.logo img {
-    max-width: 200px;
+.logo a img {
+    width: 200px;
     height: auto;
 }
-
-/* Center menu items and add space between them */
-.menu {
+.main-nav {
     display: flex;
-    margin-left: 10rem;
-    margin-right: 10rem;
 }
-
-.menu ul {
+.main-nav ul {
     list-style: none;
     padding: 0;
     display: flex;
     align-items: center;
 }
 
-.menu li {
+.main-nav li {
     margin: 0 20px;
 }
 
-.menu ul li a {
+.main-nav ul li a {
     text-decoration: none;
     color: #000000;
     font-size: 25px;
     padding: 10px 10px;
 }
 
-.menu ul li a:hover {
+.main-nav ul li a:hover {
     color: #fff;
     background-color: #000000;
 }
+#hamburger-icon {
+    margin-top: 3rem;
+    display: none;
+    cursor: pointer;
+}
 
-/* Add styles for the search bar */
+#hamburger-icon div {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+.open .bar-1 {
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.open .bar-2 {
+    opacity: 0;
+}
+
+.open .bar-3 {
+    transform: rotate(45deg) translate(-6px, -8px);
+}
+
 .search-bar {
-    width: 100%;
-    background:transparent;
     display: flex;
-    border-radius: 70px;
+    align-items: center;
+    width: 300px;
+    height: auto;
 }
 
 .search-bar input {
-    background:transparent;
+    background: transparent;
     flex: 1;
-    border: 1px solid black;
+    border: 1.5px solid #000;
     outline: none;
+    height: 30px;
+    padding: 5px;
 }
 
 ::placeholder {
-    color: #000000;
+    color: #000;
 }
+
 .search-bar button img {
     width: 25px;
 }
- .search-bar button{
+
+.search-bar button {
     border: 0;
     background: transparent;
- }
+}
 
-/* Media query for screens with a maximum width of 480px (Smartphones) */
-@media (max-width: 480px){
-    header {
-        display: flex;
-    }
-    .header-container {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-    }
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    height: 100%;
+    width: 250px;
+    list-style: none;
+    margin: 0;
+    padding: 20px 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
 
-    .logo img {
-        width: 300px;
-        height: auto;
-    }
-    .menu {
-        justify-content: space-between;
-        padding: auto;
-    }
+.side-menu li a{
+    margin-left: 10px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
 
-    .menu ul {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        align-items: center;
+@media only screen and (max-width: 768px) {
+    header nav.main-nav {
+        display: none;
     }
 
-    .menu ul li {
-        margin: 0 20px;
+    .logo a img {
+        width: 120px;
     }
-    .menu ul li a {
-        font-size: 30px;
-    }
-    
+
     .search-bar {
-        width: auto;
-        margin-top: 3rem;
+        display: none;
     }
 
-    .search-bar input {
-        height: 40px;
-        width: 250px;
+    #hamburger-icon {
+        display: block;
+    }
+
+    .side-menu {
+        left: 0;
     }
 }
 
-/* Media query for screens with a maximum width of 767px (Low-Resolution Tablets and iPads) */
-@media (max-width: 768px) {
-    .menu {
-        display: flex;
-        justify-content: space-between;
-    }
+/* Your existing CSS styles here */
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Initially hidden */
+    width: 300px;
+    height: 100%;
+    background-color: #fffefe;
+    transition: left 0.3s;
+}
+.side-menu li {
+    padding: 1.5rem;
 }
 
-/* Media query for screens with a maximum width of 1024px (Tablets and iPads in portrait mode) */
-@media (max-width: 1024px) {
-    .menu li {
-        margin: 0 15px;
-    }
+.container.active .side-menu {
+    left: 0;
 }
