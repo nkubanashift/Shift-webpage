@@ -171,9 +171,11 @@ header {
     }
     .new-text h1{
         font-size: 30px;
+        margin-left: -7rem;
     }
     .new-text p{
         font-size: 10px;
+        margin-left: -3.5rem;
     }
     .new-arrivals img {
         width: 100%;
