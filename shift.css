@@ -61,6 +61,7 @@ header {
     margin-top: 3rem;
     display: none;
     cursor: pointer;
+    height: 0;
 }
 
 #hamburger-icon div {
